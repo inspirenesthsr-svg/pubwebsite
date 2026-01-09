@@ -606,7 +606,7 @@
 
     fadeElements.forEach(el => observer.observe(el));
 
-    // Form submission
+    // Form submission (WhatsApp Forwarding)
     document.querySelector('.cta-form').addEventListener('submit', function (e) {
       e.preventDefault();
 
@@ -616,10 +616,10 @@
       const phone = this.querySelector('input[placeholder="Phone Number"]').value;
       const teamSize = this.querySelector('select').value;
 
-      const subject = `Demo Request from ${company}`;
-      const body = `Name: ${name}%0D%0ACompany: ${company}%0D%0AEmail: ${email}%0D%0APhone: ${phone}%0D%0ATeam Size: ${teamSize}%0D%0A%0D%0APlease schedule a demo for us.`;
+      const message = `*New Demo Request*%0A%0A*Company:* ${company}%0A*Name:* ${name}%0A*Email:* ${email}%0A*Phone:* ${phone}%0A*Team Size:* ${teamSize}`;
 
-      window.location.href = `mailto:enquiry@inspire-nest.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+      // Open WhatsApp with pre-filled message
+      window.open(`https://wa.me/919514774622?text=${message}`, '_blank');
 
       this.reset();
     });
